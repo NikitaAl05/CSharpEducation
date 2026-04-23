@@ -416,3 +416,22 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# === JetBrains Rider / IntelliJ Specific ===
+.idea/
+*.sln.iml
+*.idea
+.rh/
+# Игнорируем специфические папки Rider, которые могут называться по имени проекта
+.idea.*/
+# Игнорируем файлы настроек конкретного пользователя
+.idea/workspace.xml
+.idea/shelf/
+.idea/contentModel.xml
+.idea/indexLayout.xml
+.idea/projectSettingsUpdater.xml
+
+# Если используешь Rider, он иногда создает такие файлы
+*.DotSettings.user
+_ReSharper*/
+.DS_Store
