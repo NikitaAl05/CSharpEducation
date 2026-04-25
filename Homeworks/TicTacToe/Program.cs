@@ -4,23 +4,19 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Console.WriteLine("Хотите сыграть против другого игрока? [y/n]");
-        // string userInput = Console.ReadLine();
         char[,] gameBoard = new char[3, 3];
         PrintGameIndexBoard(gameBoard);
         PrintGameBoard(gameBoard);
-
-		while (true)
-		{
-			RunX(gameBoard);
-			if (BoardCheck(gameBoard)) break; 
+        while (true)
+        {
+            RunX(gameBoard);
+            if (BoardCheck(gameBoard)) break; 
             if (MoveCheck(gameBoard)) break;
 
             RunO(gameBoard);
-			if (BoardCheck(gameBoard)) break;
+            if (BoardCheck(gameBoard)) break;
             if (MoveCheck(gameBoard)) break;
-		}	
-        
+        }	
     }
     public static void PrintGameBoard(char[,] gameBoard)
     {
@@ -123,13 +119,15 @@ class Program
         {
             if (gameBoard[i, 0] == gameBoard[i, 1] && gameBoard[i, 1] == gameBoard[i, 2])
             {
-                Console.WriteLine("Победа по горизонтале");
+                char winner = gameBoard[i, 0];
+                Console.WriteLine($"Игра окончена. Победил: {winner} ");
                 return true;
             }
 
             if (gameBoard[0, i] == gameBoard[1, i] && gameBoard[1, i] == gameBoard[2, i])
             {
-                Console.WriteLine("Победа по вертикале");
+                char winner = gameBoard[0, i];
+                Console.WriteLine($"Игра окончена. Победил: {winner} ");           
                 return true;
             }
         }
@@ -137,7 +135,8 @@ class Program
         if (gameBoard[0, 0] == gameBoard[1, 1] && gameBoard[1, 1] == gameBoard[2, 2] ||
             gameBoard[0, 2] == gameBoard[1, 1] && gameBoard[1, 1] == gameBoard[2, 0])
         {
-            Console.WriteLine("Победа");
+            char winner = gameBoard[1, 1];
+            Console.WriteLine($"Игра окончена. Победил: {winner} ");           
             return true;
         }
         return false;
