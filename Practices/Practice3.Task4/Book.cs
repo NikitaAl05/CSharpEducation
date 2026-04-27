@@ -6,9 +6,18 @@ class Book
 {
     private string name;
     private string author;
-    
-    public string Name { get; set; }
-    public string Author { get; set; }
+
+    public string Name
+    {
+        get => name;
+        set { name = value; }
+    }
+
+    public string Author
+    {
+        get => author;
+        set { author = value; }
+    }
 
     public Book()
     {
