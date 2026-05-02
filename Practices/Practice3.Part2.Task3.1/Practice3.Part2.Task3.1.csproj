@@ -3,8 +3,12 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>Practice3.Part2.Task3._1</RootNamespace>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Practice3.Part2.Task3\Practice3.Part2.Task3.csproj" />
+    </ItemGroup>
     
 </Project>
