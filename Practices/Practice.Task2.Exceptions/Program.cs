@@ -1,11 +1,14 @@
-﻿namespace Practice.Task2.Exceptions;
+﻿using Practice4.Task2;
+
+namespace Practice.Task2.Exceptions;
 
 class Program
 {
     static void Main(string[] args)
     {
+        ConsoleLogger logger = new ConsoleLogger();
         Console.WriteLine("--- Тест 1: Обычный счет ---");
-        RegularAccount regAccount = new RegularAccount();
+        RegularAccount regAccount = new RegularAccount(logger);
 
         try
         {
@@ -39,7 +42,7 @@ class Program
         Console.WriteLine("\n----------------------------------------\n");
         
         Console.WriteLine("--- Тест 3: Накопительный счет ---");
-        SavingsAccount saveAccount = new SavingsAccount();
+        SavingsAccount saveAccount = new SavingsAccount(logger);
         
         try
         {
@@ -66,44 +69,59 @@ class Program
 
 public abstract class BankAccount
 {
+    
+    protected readonly ConsoleLogger _logger;
+    public BankAccount(ConsoleLogger logger)
+    {
+        _logger = logger;
+    }
     public decimal Balance { get; set; }
     
     public void Deposit(decimal amount)
     {
         if (amount <= 0)
         {
+            _logger.Error("Попытка пополнения на некорректную сумму.");
             throw new InvalidAmountException("Ошибка: Сумма пополнения должна быть больше нуля.");
         }
         Balance += amount;
+        _logger.Info($"Баланс успешно пополнен на {amount} руб.");
     }
 
     public virtual void Withdraw(decimal amount)
     {
         if (amount <= 0)
         {
+            _logger.Error("Попытка снятия некорректной суммы.");
             throw new InvalidAmountException("Ошибка: Сумма снятия должна быть больше нуля.");
         }
 
         if (amount > Balance)
         {
-            throw new InsufficientFundsException($"Ошибка: Сумма снятия больше чем ваш баланс Баланс: {Balance}");
+            _logger.Error($"Недостаточно средств для снятия {amount} руб.");
+            throw new InsufficientFundsException($"Ошибка: Недостаточно средств. Баланс: {Balance} руб.");
         }
         Balance -= amount;
+        _logger.Info($"Успешно снято {amount} руб.");
     }
 }
 
-public class RegularAccount : BankAccount { }
+public class RegularAccount : BankAccount
+{
+    public RegularAccount(ConsoleLogger logger) : base(logger) { }
+}
 
 public class SavingsAccount : BankAccount
-{
+{ 
     private DateTime _lastWithdrawalDate = DateTime.MinValue;
+    public SavingsAccount(ConsoleLogger logger) : base(logger) { }
     public override void Withdraw(decimal amount)
     {
         if (DateTime.Now < _lastWithdrawalDate.AddMonths(1))
         {
-            throw new WithdrawalLimitExceededException("Ошибка: Нелья снимать деньги чаще чем раз в месяц\n" +
-                                                       "Последний раз снимали деньги: " + _lastWithdrawalDate);
-            
+            _logger.Error("Попытка снятия, количесвтой снятий в месяц ограничено.");
+            throw new WithdrawalLimitExceededException("Ошибка: Нельзя снимать деньги чаще, чем раз в месяц!\n" +
+                                                       $"Последний раз деньги снимались: {_lastWithdrawalDate}");
         }
         _lastWithdrawalDate = DateTime.Now;
         base.Withdraw(amount);
