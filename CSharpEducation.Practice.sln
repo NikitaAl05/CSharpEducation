@@ -136,6 +136,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Task2.Exceptions",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Task3.Exceptions", "Practices\Practice.Task3.Exceptions\Practice.Task3.Exceptions.csproj", "{62143163-3952-43A3-B4E3-9B7D9FB16102}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Task4.Exceptions", "Practices\Practice.Task4.Exceptions\Practice.Task4.Exceptions.csproj", "{BE5A7B5E-5D6D-4BB4-99BF-4534346647D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -203,6 +205,7 @@ Global
 		{2E402447-7995-4059-8055-19B64CE0468E} = {6DD9D9B8-9B2C-4F95-937B-020E9D81DFD5}
 		{483EEAC9-B270-4FBE-8599-1FA2C1343CCE} = {6DD9D9B8-9B2C-4F95-937B-020E9D81DFD5}
 		{62143163-3952-43A3-B4E3-9B7D9FB16102} = {6DD9D9B8-9B2C-4F95-937B-020E9D81DFD5}
+		{BE5A7B5E-5D6D-4BB4-99BF-4534346647D0} = {6DD9D9B8-9B2C-4F95-937B-020E9D81DFD5}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{FB342C29-5166-46C3-AE4D-C85A4C9E1F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -441,5 +444,9 @@ Global
 		{62143163-3952-43A3-B4E3-9B7D9FB16102}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62143163-3952-43A3-B4E3-9B7D9FB16102}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62143163-3952-43A3-B4E3-9B7D9FB16102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE5A7B5E-5D6D-4BB4-99BF-4534346647D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE5A7B5E-5D6D-4BB4-99BF-4534346647D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE5A7B5E-5D6D-4BB4-99BF-4534346647D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE5A7B5E-5D6D-4BB4-99BF-4534346647D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
