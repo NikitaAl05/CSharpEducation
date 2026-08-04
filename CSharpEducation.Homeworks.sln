@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TicTacToe", "TicTacToe", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phonebook", "Homeworks\Phonebook\Phonebook.csproj", "{02F30B2C-557F-4E7C-B68E-86B475BC046A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Employee-system", "Employee-system", "{9A06A9BF-3F0A-44CD-A45E-FED98275D78A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee-system", "Homeworks\Employee-system\Employee-system.csproj", "{8F20AE20-1631-4891-B1BC-407009D23265}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,10 +34,15 @@ Global
 		{02F30B2C-557F-4E7C-B68E-86B475BC046A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02F30B2C-557F-4E7C-B68E-86B475BC046A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02F30B2C-557F-4E7C-B68E-86B475BC046A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F20AE20-1631-4891-B1BC-407009D23265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F20AE20-1631-4891-B1BC-407009D23265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F20AE20-1631-4891-B1BC-407009D23265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F20AE20-1631-4891-B1BC-407009D23265}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BA8DBFBF-54FA-4B8E-82D9-E358DD62A7FF} = {B39B23B1-951E-4E3D-BCC9-2C9869ABE0E8}
 		{9969A5C8-4CE1-48BC-B8F4-38E6DE10476E} = {8A79CD6C-0E31-489F-BE61-942B3F2CAFD2}
 		{02F30B2C-557F-4E7C-B68E-86B475BC046A} = {502D3B15-CA68-43FB-983E-E1C290728B0A}
+		{8F20AE20-1631-4891-B1BC-407009D23265} = {9A06A9BF-3F0A-44CD-A45E-FED98275D78A}
 	EndGlobalSection
 EndGlobal
