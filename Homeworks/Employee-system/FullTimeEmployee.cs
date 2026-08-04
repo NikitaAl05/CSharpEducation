@@ -18,6 +18,6 @@ internal sealed class FullTimeEmployee : Employee
     
     public override string ToString()
     {
-        return $"Полный день | Имя: {Name} | Зарплата: {CalculateSalary()} руб.";
+        return $"Полный день | Имя: {Name} | Зарплата: {CalculateSalary():n2} руб.";
     }
 }
