@@ -1,77 +1,25 @@
 namespace Employee_system;
 
-internal sealed class EmployeeManager
+internal class EmployeeManager<T> : IEmployeeManager<T> where T : Employee
 {
-    private readonly Dictionary<int, Employee> employees = new Dictionary<int, Employee>();
-    internal int nextId = 0;
+    private readonly List<T> employees = new List<T>();
     
-    internal void AddEmployee(Employee employee)
+    public void Add(T employee)
     {
-        employee.Id = nextId;
-        employees.Add(nextId, employee);
-        nextId++;
+        employees.Add(employee);
     }
 
-    internal Employee? GetEmployeeById(int id)
+    public T? Get(string name)
     {
-        if (employees.TryGetValue(id, out var employee))
-        {
-            return employee;
-        }
-        
-        Console.WriteLine($"Сотрудник с ID {id} не найден!");
-        return null;
-    }
-    
-    internal void GetAllEmployees()
-    {
-        if (employees.Count == 0)
-        {
-            Console.WriteLine("Список сотрудников пуст.");
-            return;
-        }
-        
-        foreach (var employee in employees.Values)
-        {
-            Console.WriteLine(employee.ToString());
-        }
+        return employees.Find(employee => employee.Name == name);
     }
 
-    internal void UpdateEmployee(int id, Employee employee)
+    public void Update(T employee)
     {
-        if (employees.ContainsKey(id))
+        int index = employees.FindIndex(e => e.Name == employee.Name);
+        if (index != -1)
         {
-            employee.Id = id;
-            employees[id] = employee;
-            Console.WriteLine($"Данные сотрудника с ID {id} успешно обновлены.");
+            employees[index] = employee;
         }
-        else
-        {
-            Console.WriteLine($"Ошибка: Сотрудник с ID {id} не найден.");
-        }
-        
-    }
-
-    internal void DeleteEmployee(int id)
-    {
-        if (employees.Remove(id))
-        {
-            Console.WriteLine($"Сотрудник с ID {id} уволен/удален.");
-        }
-        else
-        {
-            Console.WriteLine($"Сотрудник с ID {id} не найден.");
-        }
-    }
-
-    internal decimal CalculateTotalPayroll()
-    {
-        decimal totalSalary = 0;
-        foreach (var employee in employees.Values)
-        {
-            totalSalary += employee.CalculateSalary();
-        }
-        
-        return totalSalary;
     }
 }

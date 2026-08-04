@@ -2,17 +2,25 @@ namespace Employee_system;
 
 internal sealed class PartTimeEmployee : Employee 
 {
-    internal decimal BaseSalary { get; set; }
-    internal double Rate { get; set; }
-    internal PartTimeEmployee(string firstName, string lastName, string position, decimal baseSalary ,double rate)
-        : base(firstName, lastName, position)
-    { this.BaseSalary = baseSalary; this.Rate = rate; }
+    public override string Name { get; set; }
+    public override decimal BaseSalary { get; set; }
+    public int HoursWorked { get; set; }
 
+    internal PartTimeEmployee(string name, decimal baseSalary , int hoursWorked)
+    {
+        this.BaseSalary = baseSalary;
+        this.Name = name;
+        this.HoursWorked = hoursWorked;
+    }
+    
     internal override decimal CalculateSalary()
     {
-        return BaseSalary * (decimal)Rate;
+        return BaseSalary * HoursWorked;
     }
-
-    internal override string ToString() => $"[ID: {Id}] {FirstName} {LastName} | Должность: {Position} | Зарплата: {CalculateSalary():N2} руб.";
-
+    
+    public override string ToString()
+    {
+        return $"Частичная занятость | Имя: {Name} | Часов: {HoursWorked} | Зарплата: {CalculateSalary()} руб.";
+    }
+    
 }

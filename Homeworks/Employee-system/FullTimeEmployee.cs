@@ -2,16 +2,22 @@ namespace Employee_system;
 
 internal sealed class FullTimeEmployee : Employee
 {
-    internal decimal MonthlySalary { get; set; }    
+    public override string Name { get; set; }
+    public override decimal BaseSalary { get; set; }
 
-    internal FullTimeEmployee(string firstName, string lastName, string position, decimal montlySalary)
-        : base(firstName, lastName, position) { this.MonthlySalary = montlySalary; }
+    internal FullTimeEmployee(string name, decimal baseSalary)
+    {
+        this.Name = name;
+        this.BaseSalary = baseSalary;
+    }
 
     internal override decimal CalculateSalary()
     {
-        return MonthlySalary;
+        return BaseSalary;
     }
-
-    internal override string ToString() => $"[ID: {Id}] {FirstName} {LastName} | Должность: {Position} | Зарплата: {CalculateSalary():N2} руб.";
-
+    
+    public override string ToString()
+    {
+        return $"Полный день | Имя: {Name} | Зарплата: {CalculateSalary()} руб.";
+    }
 }

@@ -1,20 +1,9 @@
 namespace Employee_system;
 
 internal abstract class Employee
-{
-    internal int Id { get; set; }
-    
-    internal string FirstName { get; set; }
-    internal string LastName { get; set; }
-    internal string Position { get; set; }
-
-    internal Employee(string firstName, string lastName, string position)
-    {
-        this.FirstName = firstName;
-        this.LastName = lastName;
-        this.Position = position;
-    }
+{ 
+    public abstract string Name { get; set; }
+    public abstract decimal BaseSalary { get; set; }
     
     internal abstract decimal CalculateSalary();
-    internal abstract string ToString(); 
 }
