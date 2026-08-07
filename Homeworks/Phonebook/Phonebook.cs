@@ -118,4 +118,10 @@ public sealed class Phonebook
             }
         }
     }
+    
+    public void Clear()
+    {
+        abonents.Clear();
+    }
+    
 }
